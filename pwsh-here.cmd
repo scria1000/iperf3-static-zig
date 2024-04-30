@@ -1,1 +1,0 @@
-powershell.exe -noexit -command Set-Location -literalPath "%~dp0."
