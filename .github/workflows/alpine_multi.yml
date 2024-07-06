@@ -100,7 +100,7 @@ jobs:
           echo "release_tag=$(sed -rn 's|(.*)\[(.*)],\[https://github.com/esnet/iperf],(.*)|\2|p' $HOME/iperf3/configure.ac)" >> $GITHUB_ENV
 
       - name: Attest artifact
-        uses: github-early-access/generate-build-provenance@main
+        uses: actions/attest-build-provenance@v1
         with:
           subject-path: '${{ runner.temp }}/_github_home/iperf3/bin/iperf3-*'
 
