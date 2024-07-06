@@ -5,14 +5,14 @@ on: [workflow_dispatch]
 env:
   DEBIAN_FRONTEND: noninteractive
 
-  ZIG_DIST_VERSION: 0.12.0
-  ZIG_DIST_SHA256_SUM: c7ae866b8a76a568e2d5cfd31fe89cdb629bdd161fdd5018b29a4a0a17045cad
+  ZIG_DIST_VERSION: 0.13.0
+  ZIG_DIST_SHA256_SUM: d45312e61ebcc48032b77bc4cf7fd6915c11fa16e4aad116b66c9468211230ea
 
-  OPENSSL_DIST_VERSION: 3.3.0
-  OPENSSL_DIST_SHA256_SUM: 53e66b043322a606abf0087e7699a0e033a37fa13feb9742df35c3a33b18fb02
+  OPENSSL_DIST_VERSION: 3.3.1
+  OPENSSL_DIST_SHA256_SUM: 777cd596284c883375a2a7a11bf5d2786fc5413255efab20c50d6ffe6d020b7e
 
-  IPERF3_DIST_VERSION: 3.16
-  IPERF3_DIST_SHA256_SUM: cc740c6bbea104398cc3e466befc515a25896ec85e44a662d5f4a767b9cf713e
+  IPERF3_DIST_VERSION: 3.17.1
+  IPERF3_DIST_SHA256_SUM: 84404ca8431b595e86c473d8f23d8bb102810001f15feaf610effd3b318788aa
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -24,7 +24,7 @@ jobs:
   build:
     name: ${{ format('{0} {1} {2} {3}', matrix.zig_target, matrix.zig_flags, matrix.openssl_target, matrix.openssl_flags) }}
     runs-on: ubuntu-latest
-    container: 'alpine:3.19.1'
+    container: 'alpine:3.20.1'
     strategy:
       fail-fast: false
       matrix:
